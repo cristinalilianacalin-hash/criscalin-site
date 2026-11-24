@@ -15,6 +15,49 @@
   var list = document.getElementById("shorts");
   if (!list) return;
 
+  var pop = null, popBody = null, lastBtn = null;
+  function closePop() {
+    if (!pop) return;
+    popBody.textContent = "";
+    if (pop.open && pop.close) pop.close(); else pop.removeAttribute("open");
+    document.body.style.overflow = "";
+    if (lastBtn) lastBtn.focus();
+  }
+  function openPop(id, title, btn) {
+    if (!pop) {
+      pop = document.createElement("dialog");
+      pop.className = "vpop";
+      pop.setAttribute("aria-label", "Video");
+      var inner = document.createElement("div");
+      inner.className = "vpop-in";
+      var x = document.createElement("button");
+      x.type = "button"; x.className = "vpop-x";
+      x.setAttribute("aria-label", "Close video"); x.textContent = "\u00d7";
+      x.addEventListener("click", closePop);
+      popBody = document.createElement("div");
+      inner.appendChild(x); inner.appendChild(popBody);
+      pop.appendChild(inner);
+      pop.addEventListener("click", function (e) { if (e.target === pop) closePop(); });
+      pop.addEventListener("cancel", function (e) { e.preventDefault(); closePop(); });
+      document.body.appendChild(pop);
+    }
+    lastBtn = btn;
+    var f = document.createElement("iframe");
+    f.className = "short-frame";
+    f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&playsinline=1&rel=0";
+    f.title = title;
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true;
+    var cap = document.createElement("span");
+    cap.className = "short-title";
+    cap.textContent = title;
+    popBody.textContent = "";
+    popBody.appendChild(f); popBody.appendChild(cap);
+    if (pop.showModal) pop.showModal(); else pop.setAttribute("open", "");
+    document.body.style.overflow = "hidden";
+    pop.querySelector(".vpop-x").focus();
+  }
+
   function valid(v) { return v && typeof v.id === "string" && /^[\w-]{6,20}$/.test(v.id); }
 
   function render(videos) {
@@ -41,21 +84,7 @@
       t.textContent = title;
       btn.appendChild(thumb);
       btn.appendChild(t);
-      btn.addEventListener("click", function () {
-        var f = document.createElement("iframe");
-        f.className = "short-frame";
-        f.src = "https://www.youtube-nocookie.com/embed/" + v.id + "?autoplay=1&playsinline=1&rel=0";
-        f.title = title;
-        f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
-        f.allowFullscreen = true;
-        var cap = document.createElement("span");
-        cap.className = "short-title";
-        cap.textContent = title;
-        li.textContent = "";
-        li.appendChild(f);
-        li.appendChild(cap);
-        f.focus();
-      });
+      btn.addEventListener("click", function () { openPop(v.id, title, btn); });
       li.appendChild(btn);
       list.appendChild(li);
     });
