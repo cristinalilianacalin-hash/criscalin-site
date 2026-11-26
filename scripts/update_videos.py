@@ -52,6 +52,11 @@ def is_short(vid):
         raise
 
 
+def clean(title):
+    """Drop trailing hashtags such as #shorts from YouTube titles."""
+    return re.sub(r"(\s+#[\w-]+)+\s*$", "", (title or "").strip()).strip()
+
+
 def parse_feed(xml_bytes):
     root = ET.fromstring(xml_bytes)
     out = []
@@ -60,7 +65,7 @@ def parse_feed(xml_bytes):
         if not ID_RE.match(vid):
             continue
         out.append({"id": vid,
-                    "title": (e.findtext("a:title", default="", namespaces=NS) or "").strip(),
+                    "title": clean(e.findtext("a:title", default="", namespaces=NS)),
                     "published": e.findtext("a:published", default="", namespaces=NS)[:10]})
     return out
 
@@ -68,6 +73,7 @@ def parse_feed(xml_bytes):
 def merge(fresh, old):
     seen, res = set(), []
     for v in fresh + old:
+        v["title"] = clean(v.get("title", ""))
         if v.get("id") in seen or not ID_RE.match(v.get("id", "")):
             continue
         seen.add(v["id"])
