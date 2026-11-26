@@ -1,14 +1,64 @@
 {
  "youtube_channel": "https://www.youtube.com/@criscalin",
  "instagram": "https://www.instagram.com/iamcriscalin",
+ "channel_id": "UCHFyHWlkrjXT0DblSmTIONw",
  "shorts": [
-  {"id":"1nL8qBBYz5o","title":"The most impressive candidate is often the riskiest hire"},
-  {"id":"nvuOUR2dVsc","title":"It's 2 a.m. and you're replaying that meeting"},
-  {"id":"ekINMQW9bBo","title":"Bad day or bad pattern? The 3P test"},
-  {"id":"28CbKL2Wze0","title":"For years I repeated patterns at work I never questioned"},
-  {"id":"x6a2Gt5MdP4","title":"Someone is rewriting your reputation in meetings you're not in"},
-  {"id":"WK46BZ5yXKE","title":"In global teams, \"yes\" can mean \"no\""},
-  {"id":"HFOwQGXHL4E","title":"Your brain has a bouncer (and he's ruining your meetings)"},
-  {"id":"PtCjaA4wqUM","title":"Your micromanager isn't controlling. They're scared."}
+  {
+   "id": "JuSlXskV8I4",
+   "title": "Your \"it's fine\" feedback is quietly breaking your team #shorts",
+   "published": "2026-11-25"
+  },
+  {
+   "id": "0QhyKk_CJCM",
+   "title": "Two words that turn work anxiety into a plan #shorts",
+   "published": "2026-11-24"
+  },
+  {
+   "id": "1nL8qBBYz5o",
+   "title": "The most impressive candidate is often the riskiest hire #shorts",
+   "published": "2026-11-23"
+  },
+  {
+   "id": "nvuOUR2dVsc",
+   "title": "It's 2 a.m. and you're replaying that meeting #shorts",
+   "published": "2026-11-22"
+  },
+  {
+   "id": "ekINMQW9bBo",
+   "title": "Bad day or bad pattern? The 3P test #shorts",
+   "published": "2026-11-21"
+  },
+  {
+   "id": "28CbKL2Wze0",
+   "title": "For years I repeated patterns at work I never questioned #shorts",
+   "published": "2026-11-20"
+  },
+  {
+   "id": "x6a2Gt5MdP4",
+   "title": "Someone is rewriting your reputation in meetings you're not in #shorts",
+   "published": "2026-11-20"
+  },
+  {
+   "id": "WK46BZ5yXKE",
+   "title": "In global teams, \"yes\" can mean \"no\" #shorts",
+   "published": "2026-11-20"
+  },
+  {
+   "id": "HFOwQGXHL4E",
+   "title": "Your brain has a bouncer (and he's ruining your meetings) #shorts",
+   "published": "2026-11-19"
+  },
+  {
+   "id": "PtCjaA4wqUM",
+   "title": "Your micromanager isn't controlling. They're scared. #shorts",
+   "published": "2026-11-19"
+  }
+ ],
+ "long": [
+  {
+   "id": "rV7aQD1UTNQ",
+   "title": "Your boss, your brain, and the meeting that went wrong: a work survival guide",
+   "published": "2026-11-26"
+  }
  ]
 }
