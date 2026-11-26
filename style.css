@@ -328,3 +328,14 @@ html,body{overflow-x:clip}
 .door-here{display:none}
 .door a{gap:12px}
 .doors-row{margin-top:clamp(24px,3.5vw,40px)}
+
+/* Featured long video */
+.feature-long{display:grid;grid-template-columns:minmax(0,1.1fr) 1fr;gap:clamp(18px,3vw,40px);align-items:center;margin:0 0 48px;padding:clamp(14px,2vw,22px);border:1px solid rgba(255,204,26,.35);border-radius:6px;color:inherit;text-decoration:none;background:var(--k2)}
+.feature-long:hover{border-color:var(--y)}
+.feature-thumb img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}
+.feature-text{display:flex;flex-direction:column;gap:10px}
+.feature-tag{color:var(--y);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.feature-title{font-size:clamp(20px,2.2vw,28px);line-height:1.2}
+.feature-desc{font-size:15.5px;opacity:.85}
+.feature-cta{align-self:flex-start;margin-top:6px;padding:9px 16px;background:var(--y);color:var(--k);font-weight:700;border-radius:3px;font-size:15px}
+@media (max-width:720px){.feature-long{grid-template-columns:1fr}}
